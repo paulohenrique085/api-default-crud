@@ -7,8 +7,8 @@ const userSchema = require('../schemas/user-schema')
 const User = mongoose.model('User', userSchema, 'users')
 
 
-User.modelInsertUser = object => {
-    return User.create(object)
+User.createUser = user => {
+    return User.create(user)
 }
 
 
