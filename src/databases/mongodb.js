@@ -1,7 +1,8 @@
 //creating database connection
+const { resolve } = require('path')
 
 const mongoose = require('mongoose')
-require('dotenv').config({ path: 'env/.env' })
+require('dotenv').config({ path: resolve('env', '.env') })
 class MongoDB {
     static createConnection() {
         mongoose.connect(process.env.MONGO_DB, {
