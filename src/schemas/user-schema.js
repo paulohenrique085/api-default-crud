@@ -2,7 +2,7 @@
 const { Schema } = require('mongoose')
 
 module.exports = Schema({
-    fullname: {
+    fullName: {
         type: String,
         default: null
     },
@@ -14,10 +14,7 @@ module.exports = Schema({
         type: String,
         default: null
     },
-    type: {
-        type: String,
-        default: null
-    },
+
     disabled: {
         type: Boolean,
         default: false
