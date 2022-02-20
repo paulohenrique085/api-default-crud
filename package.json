@@ -13,13 +13,12 @@
         "eslint": "^7.32.0",
         "express": "^4.17.2",
         "jest": "^27.5.1",
-        "mongoose": "^6.2.1",
+        "mongoose": "^6.2.2",
         "nodemon": "^2.0.15",
         "path": "^0.12.7",
         "resolve": "^1.22.0",
         "use": "^3.1.1"
     },
-    "devDependencies": {},
     "scripts": {
         "coverage": "jest --colors --coverage",
         "test": "npm run coverage",
