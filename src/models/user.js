@@ -13,6 +13,8 @@ User.createUser = user => {
 User.listUsers = () => {
     return User.find().lean()
 }
-
+User.deleteUserByCpf = (cpf) => {
+    return User.findOneAndDelete(cpf)
+}
 
 module.exports = User
