@@ -12,6 +12,9 @@ class UserService {
         const userList = await User.listUsers()
         return userList
     }
+    static async deleteUserByCpf(cpf) {
+        await User.deleteUserByCpf(cpf)
+    }
 
 }
 
