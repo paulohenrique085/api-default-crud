@@ -10,6 +10,9 @@ const User = mongoose.model('User', userSchema, 'users')
 User.createUser = user => {
     return User.create(user)
 }
+User.listUsers = () => {
+    return User.find().lean()
+}
 
 
 module.exports = User
