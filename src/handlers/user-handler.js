@@ -2,15 +2,11 @@ const UserService = require('../services/user-service')
 
 class UserHandler {
 
-    static async listUsers(req, res) {
-
-    }
-
     static async createUser(req, res) {
-        const user = req.body
+        const credentials = req.body
 
         try {
-            await UserService.createUser(user)
+            await UserService.createUser(credentials)
             res.status(200).json({ message: "User registered successfully" })
 
         } catch (error) {
@@ -19,13 +15,19 @@ class UserHandler {
 
     }
 
-    static async listUserById(req, res) {
+    static async listUsers(req, res) {
+
+        try {
+            const users = await UserService.listUsers()
+            res.status(200).json(users)
+
+        } catch (error) {
+
+            res.status(400).json({ message: "Error listing users" })
+        }
 
     }
 
-    static async deleteUserByCpf(req, res) {
-
-    }
 }
 
 module.exports = UserHandler
