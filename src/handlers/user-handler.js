@@ -27,6 +27,22 @@ class UserHandler {
         }
 
     }
+    static async deleteUserByCpf(req, res) {
+        const cpf = req.body
+
+        try {
+
+            await UserService.deleteUserByCpf(cpf)
+            res.status(200).json(`user deleted successfully`)
+
+        } catch (error) {
+
+            res.status(400).json({ message: "Error deleting user" })
+        }
+
+
+    }
+
 
 }
 
