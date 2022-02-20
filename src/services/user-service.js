@@ -1,22 +1,16 @@
 //creating services
 const User = require('../models/user')
+
 class UserService {
 
+    static async createUser(credentials) {
+
+        await User.createUser(credentials)
+    }
+
     static async listUsers() {
-
-    }
-
-    static async createUser(event) {
-        await User.createUser(event)
-
-    }
-
-    static async listUserById() {
-
-    }
-
-    static async deleteUserByCpf() {
-
+        const userList = await User.listUsers()
+        return userList
     }
 
 }
