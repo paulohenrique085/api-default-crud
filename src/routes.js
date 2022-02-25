@@ -7,5 +7,5 @@ const UserHandler = require('./handlers/user-handler')
 //routes
 routes.post('/create-user', UserHandler.createUser)
 routes.get('/users', UserHandler.listUsers)
-routes.delete('/delete-cpf', UserHandler.deleteUserByCpf)
+routes.delete('/delete-user', UserHandler.deleteUserByCpf)
 module.exports = routes
