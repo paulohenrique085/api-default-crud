@@ -18,5 +18,9 @@ module.exports = Schema({
     disabled: {
         type: Boolean,
         default: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date
     }
 })
