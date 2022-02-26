@@ -1,19 +1,32 @@
 const UserService = require('../services/user-service')
+const UserHelper = require('../helpers/user-helper')
 
 class UserHandler {
 
     static async createUser(req, res) {
         const credentials = req.body
 
-        try {
-            await UserService.createUser(credentials)
-            res.status(200).json({ message: "User registered successfully" })
+        const { cpf } = req.body
 
-        } catch (error) {
-            res.status(400).json({ message: "Error when registering user" })
+        const userExistence = await UserHelper.checkUserInDatabase(cpf)
+
+        if (userExistence) {
+            res.status(400).json({ message: "The user already exists in our database" })
         }
 
+        else {
+            try {
+                await UserService.createUser(credentials)
+                res.status(200).json({ message: "User registered successfully" })
+
+            } catch (error) {
+                res.status(400).json({ message: "Error when registering user" })
+            }
+        }
+
+
     }
+
 
     static async listUsers(req, res) {
 
@@ -27,20 +40,29 @@ class UserHandler {
         }
 
     }
+
+
     static async deleteUserByCpf(req, res) {
-        const cpf = req.body
+        const { cpf } = req.body
 
-        try {
+        const userExistence = await UserHelper.checkUserInDatabase(cpf)
 
-            await UserService.deleteUserByCpf(cpf)
-            res.status(200).json(`user deleted successfully`)
-
-        } catch (error) {
-
-            res.status(400).json({ message: "Error deleting user" })
+        if (!userExistence) {
+            res.status(400).json({ message: "The user does not exist in our database" })
         }
 
+        else {
 
+            try {
+                await UserService.deleteUserByCpf(cpf)
+                res.status(200).json("User deleted successfully")
+
+            } catch (error) {
+
+                res.status(400).json({ message: "Error deleting user" })
+
+            }
+        }
     }
 
 
