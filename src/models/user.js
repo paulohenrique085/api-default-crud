@@ -20,5 +20,10 @@ User.checkUserExistence = (cpf) => {
     return User.findOne({ cpf }).lean()
 }
 
+User.updateUser = (fullName, age, cpf) => {
+    return User.findOneAndUpdate({ cpf: cpf }, { fullName: fullName, age: age }, { new: true })
+}
+
+
 
 module.exports = User
