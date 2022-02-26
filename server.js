@@ -17,5 +17,5 @@ mongodb.createConnection()
 
 //going up server
 app.listen(process.env.PORT, () => {
-    console.log("\033[1;32mSERVER RUNNING # ")
+    console.log("\033[1;32m# SERVER RUNNING # ")
 })
