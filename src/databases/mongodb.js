@@ -14,7 +14,7 @@ class MongoDB {
             if (err) {
                 console.log(err)
             } else {
-                console.log('Database connected successfull !!')
+                console.log('# CONNECTED DATABASE #')
             }
         })
     }
